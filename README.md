@@ -43,6 +43,7 @@ depending on what the user selected in the addon preferences.
 ![Output](images/Usage_02.png)
 
 - If no name is given to the output file, files will be saved as ***untitled-*** prefix and with sequential numbering as suffix (eg. _0001,0002,0003 etc.)
+
 ![Output](images/Usage_02b.png)
 
 
@@ -60,14 +61,23 @@ depending on what the user selected in the addon preferences.
 
     It will render only the keyframes for the selected layer/s by modifing the visibility of the other layers while rendering, but restoring their visibility to their state prior the execution of the operator so the user does not notice the change. This applies even if the user has multiple greace pencils and/or layer/s selected outside of the active greace pencil.
 
+    ![Behaviour](images/Usage_03b-01.png)
+
+
 - When `selected keyframes` is enabled![Behaviour](images/Usage_03c.png) :
 
-    s
+    This will render all selected keyframes regardless of layer selection.
+
+    ![Behaviour](images/Usage_03c-1.png)
 
 - When both `selected layers` and `selected keyframes` are enabled ![Behaviour](images/Usage_03d.png) :
 
-    s
+    This will render all selected keyframes inside a layer. As with the `selected layers` other layers will be hidden during rendering.
 
-- When neither are selected ![Behaviour](images/Usage_03e.png) :
+    ![Behaviour](images/Usage_03d-1.png)
+
+- When neither are enabled ![Behaviour](images/Usage_03e.png) :
     
-    s
+    When there is no `selected layers` or `selected keyframes` enabled, then it renders all keyframes in all grease pencils with all layers visible.
+
+    ![Behaviour](images/Usage_03e-1.png)

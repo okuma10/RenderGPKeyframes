@@ -21,7 +21,7 @@ def add_to_dopesheet():
         for line in data:
             if already_in_file_search in line:                  # Check if my additon is already in the file
                 already_in_file = True
-                print(f'\x1b[38;2;235;59;90m * Render GP keyframes already added to Dopesheet\n\t-Pass ')
+                print(f'\x1b[38;2;235;59;90m * Render GP keyframes already added to Dopesheet\n\t-Pass \x1b[0m')
             if search_line in line and not already_in_file:     #only procede if my addition is not in the file
                 line_idx = data.index(line)
                 insert_line_idx = line_idx + 1
@@ -111,7 +111,7 @@ def remove_from_dopesheet():
         # Notify about end of procedure
         print(f'\x1b[48;2;32;191;107m\x1b[38;2;0;0;0m * Render GP keyframes removed from UI file. * \x1b[0m')
     else:
-        print(f'\x1b[38;2;235;59;90m Render GP keyframes not in file\n\t - Pass')
+        print(f'\x1b[38;2;235;59;90m Render GP keyframes not in file\n\t - Pass \x1b[0m')
 
 # add_to_dopesheet()
 # remove_from_dopesheet()
