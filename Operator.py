@@ -7,8 +7,14 @@ def render_GP_keyframes(selected_keyframes, selected_layers):
     desired_render_formats = ['JPEG','PNG']
 
     # Init
-    context = bpy.context.area.type
-    bpy.context.area.type = "VIEW_3D"
+    
+    #context = bpy.context.area.type
+    # for area in bpy.data.window_managers[0].windows[0].screen.areas:
+    #     if area.type == "VIEW_3D":
+    #         print(f'\x1b[38;2;254;211;48m This is the view 3d ')
+    #bpy.data.window_managers['WinMan'].windows[0].screen.areas[4].spaces[0].region_3d.view_matrix
+    # bpy.context.area.type = "VIEW_3D"
+
     init_render_format = bpy.context.scene.render.image_settings.file_format
     init_frame_number = bpy.context.scene.frame_current
 
@@ -132,7 +138,7 @@ def render_GP_keyframes(selected_keyframes, selected_layers):
         #   Assign new filepath
         bpy.context.scene.render.filepath = new_filepath
         #   Render
-        bpy.ops.render.opengl(animation=False, sequencer=False, write_still=True, view_context=False)
+        bpy.ops.render.opengl(write_still=1, view_context=True)
         # bpy.ops.render.render(write_still = True, use_viewport = True)
         print(f'\x1b[0m')
 
@@ -142,7 +148,7 @@ def render_GP_keyframes(selected_keyframes, selected_layers):
     # #   Restore -Print color, context, render_path name, file format, layer visibility
     print(f'\x1b[48;2;32;191;107m\x1b[38;2;0;0;0;1m{"":^5} Render Complete \033[0m')
     bpy.context.scene.frame_set(init_frame_number)                              #  Restore initial timeline frame
-    bpy.context.area.type = context                                             #  Restore context
+    #bpy.context.area.type = context                                             #  Restore context
     bpy.context.scene.render.filepath = render_path                             #  Restore File Path       
     bpy.context.scene.render.image_settings.file_format = init_render_format    #  Restore image Format
     if selected_layers:                                                         # restore layer visibility if we have selected layers option
